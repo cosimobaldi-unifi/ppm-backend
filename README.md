@@ -23,7 +23,7 @@ to the features intended for their role.
 - Edit own events
 - Delete own events
 - View the list of registered attendees
-- 
+  
 ## Attendee
 - Register and log in
 - Browse all available events
