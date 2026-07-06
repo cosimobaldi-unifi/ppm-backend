@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card text-center">
+
+    <h1 class="text-danger mb-4">
+        ⚠ Delete Event
+    </h1>
+
+    <p class="fs-5">
+
+        Are you sure you want to delete:
+
+    </p>
+
+    <h3 class="mb-4">
+
+        "{{ object.title }}"
+
+    </h3>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <button
+                class="btn btn-danger me-2">
+
+            Yes, Delete
+
+        </button>
+
+        <a href="{% url 'event_detail' object.pk %}"
+           class="btn btn-outline-secondary">
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</div>
+
+{% endblock %}

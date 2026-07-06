@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero text-center">
+
+    <h1>Look at these events!</h1>
+
+    <p class="mt-3">
+        Create, explore and join communities through unforgettable experiences.
+    </p>
+
+    {% if user.is_authenticated and user.role == "organizer" %}
+
+        <a href="{% url 'event_create' %}"
+           class="btn btn-light btn-lg mt-4">
+
+            + Create New Event
+
+        </a>
+
+    {% endif %}
+
+</div>
+
+
+<div class="row g-4">
+
+    {% for event in events %}
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="card event-card h-100 p-4">
+
+                <div class="card-body">
+
+                    <span class="badge bg-primary mb-3">
+
+                        {{ event.date }}
+
+                    </span>
+
+                    <h4 class="event-title">
+
+                        {{ event.title }}
+
+                    </h4>
+
+                    <p class="event-meta">
+
+                         {{ event.location }}
+
+                    </p>
+
+                    <p class="text-secondary mt-3">
+
+                        {{ event.description|truncatewords:20 }}
+
+                    </p>
+
+                </div>
+
+                <div class="card-footer bg-transparent border-0">
+
+                    <a
+                        href="{% url 'event_detail' event.pk %}"
+                        class="btn btn-primary w-100">
+
+                        View Event
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <div class="text-center">
+
+            <h3>No events available.</h3>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

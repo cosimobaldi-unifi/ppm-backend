@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Baldi</title>
+
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+
+    <link
+            rel="stylesheet"
+            href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+
+    <div class="container">
+
+        <a class="navbar-brand logo-text"
+           href="/">
+
+            Baldi
+
+        </a>
+
+        <div class="ms-auto">
+
+            {% if user.is_authenticated %}
+
+                <span class="text-light me-3">
+
+                    {{ user.username }}
+
+                </span>
+
+                {% if user.role == "organizer" %}
+
+                    <span class="badge bg-primary me-3">
+
+                        Organizer
+
+                    </span>
+
+                {% else %}
+
+                    <span class="badge bg-success me-3">
+
+                        Attendee
+
+                    </span>
+
+                {% endif %}
+
+                <form method="post"
+                      action="{% url 'logout' %}"
+                      class="d-inline">
+
+                    {% csrf_token %}
+
+                    <button
+                            class="btn btn-outline-light">
+
+                        Logout
+
+                    </button>
+
+                </form>
+
+            {% else %}
+
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-light me-2">
+
+                    Login
+
+                </a>
+
+                <a href="{% url 'register' %}"
+                   class="btn btn-primary">
+
+                    Sign Up
+
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</nav>
+
+<main class="container py-5">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<footer>
+
+    <div class="container text-center">
+
+        <h5>Baldi</h5>
+
+        <p class="mb-0">
+
+            Progetto PPM 2026
+
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
