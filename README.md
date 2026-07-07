@@ -85,15 +85,14 @@ to be explored immediately after cloning the repository.
 
 ---
 
-# Demo Accounts
+# Demo Accounts (Role: username password)
 
-|  Username  |  Password   |  Role     |
-|  admin     | admin12345  |   Admin   |
-|  organizer | ppm12345    | Organizer |
-|  attendee  | attendeeppm | Attendee  |
+Admin: admin admin12345
+Organizer: organizer ppm12345
+Attendee: attendee attendeeppm 
 
 ---
 
 # Online Deployment
 
-Deployment URL:
+Deployment URL: https://baldi-ppm-backend.onrender.com/
