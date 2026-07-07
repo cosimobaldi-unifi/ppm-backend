@@ -95,3 +95,31 @@ Attendee: attendee attendeeppm
 # Online Deployment
 
 Deployment URL: https://baldi-ppm-backend.onrender.com/
+
+# Browser Testing Scenario
+
+## Organizer
+
+1. Log in using the organizer account.
+2. Navigate to the home page.
+3. Click **Create New Event**.
+4. Fill in the event form and save it.
+5. Verify that the new event appears in the event list.
+6. Open the event details page.
+7. Edit the event and verify that the changes are saved.
+8. Delete the event and verify that it is removed from the list.
+9. Verify that only events created by the organizer can be edited or deleted.
+
+## Attendee
+
+1. Log in using the attendee account.
+2. Browse the list of available events.
+3. Open an event details page.
+4. Click **Register to Event**.
+5. Verify that the registration is shown in the attendees list.
+
+## Permission Testing
+
+- An attendee cannot create, edit or delete events.
+- An organizer can only edit and delete events that they created.
+- Only authenticated users can register for events.
