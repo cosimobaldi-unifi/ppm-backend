@@ -45,6 +45,7 @@ to the features intended for their role.
 1. Clone the repository
    
 git clone https://github.com/cosimobaldi-unifi/ppm-backend
+cd ppm-backend
 
 2. Create a virtual environment
 
